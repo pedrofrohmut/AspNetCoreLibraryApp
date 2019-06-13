@@ -20,7 +20,9 @@ namespace LibraryData
 
     public DbSet<Hold> Holds { get; set; }
 
-    public DbSet<LibraryBranch> Librarybranches { get; set; }
+    public DbSet<LibraryAsset> LibraryAssets { get; set; }
+
+    public DbSet<LibraryBranch> LibraryBranches { get; set; }
 
     public DbSet<LibraryCard> LibraryCards { get; set; }
 
