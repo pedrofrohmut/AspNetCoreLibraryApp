@@ -1,8 +1,8 @@
-﻿namespace LibraryMvc.Models.Catalog.Index
+﻿namespace LibraryMvc.Models.Catalog.IndexModels
 {
   public class AssetModel
   {
-    public int Id { get; set; }
+    public int AssetId { get; set; }
     public string ImageUrl { get; set; }
     public string Title { get; set; }
     public string AuthorOrDirector { get; set; }

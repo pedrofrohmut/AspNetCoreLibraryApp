@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LibraryMvc.Models.Catalog.Checkout
+namespace LibraryMvc.Models.Catalog.CheckoutModels
 {
   public class CheckoutModel
   {
-    public int LibraryCardId { get; set; }
+    public string LibraryCardId { get; set; }
     public string Title { get; set; }
     public int AssetId { get; set; }
     public string ImageUrl { get; set; }

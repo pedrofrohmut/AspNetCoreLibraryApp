@@ -6,6 +6,11 @@ namespace LibraryData
 {
   public interface ICheckout
   {
+    // Create.
+    void Add(Checkout newCheckout);
+    void PlaceHold(int assetId, int libraryCardId);
+
+    // Read.
     IEnumerable<Checkout> GetAll();
     IEnumerable<CheckoutHistory> GetCheckoutHistory(int assetId);
     IEnumerable<Hold> GetCurrentHolds(int assetId);
@@ -15,17 +20,18 @@ namespace LibraryData
     string GetCurrentCheckoutPatron(int assetId);
     string GetCurrentHoldPatron(int holdId);
     string GetCurrentHoldPlaced(int holdId);
-    
-    void Add(Checkout newCheckout);
 
+    bool IsCheckedOut(int assetId);
+    
+    // Update.
     void CheckOutItem(int assetId, int libraryCardId);
-    void CheckInItem(int assetId, int libraryCardId);
-    void PlaceHold(int assetId, int libraryCardId);
+    void CheckInItem(int assetId);
     void MarkLost(int assetId);
     void MarkFound(int assetId);
-    
+
+    // Delete.
+
     //int GetNumberOfCopies(int id);
-    //bool IsCheckedOut(int id);
     //string GetCurrentPatron(int id);
   }
 }

@@ -1,4 +1,5 @@
-﻿@model LibraryMvc.Models.Catalog.Detail.AssetDetailModel;
+﻿@using LibraryServices.constants;
+@model LibraryMvc.Models.Catalog.DetailModels.AssetDetailModel;
 
 <div class="container">
   <div class="page-header clearfix detail-heading">
@@ -19,39 +20,46 @@
       <p id="item-type">@Model.Type</p>
       <p id="item-location">@Model.CurrentLocation</p>
 
-      @if (Model.Status == "Lost")
+      @if (Model.Status == StatusNames.LOST)
       {
         <p>This item has been lost. It cannot be checked out.</p>
-        <p>
-          <a class="btn btn-lg btn-danger" role="button" asp-controller="Catalog"
-             asp-action="MarkFound" asp-route-id="@Model.AssetId">
-            Mark Item Found
-          </a>
-        </p>
+
+        <div>
+          @using (Html.BeginForm("MarkFound", "Catalog", FormMethod.Post))
+          {
+            @Html.HiddenFor(model => model.AssetId)
+            <div>
+              <button type="submit" class="btn btn-success">Mark Found</button>
+            </div>
+          }
+        </div>
       }
 
-      @if (Model.Status == "Check Out")
+      @if (Model.Status == StatusNames.CHECKED_OUT)
       {
         <p id="item-patron">check Out by: @Model.PatronName</p>
+
+        @using (Html.BeginForm("CheckIn", "Catalog", FormMethod.Post))
+        {
+          @Html.HiddenFor(model => model.AssetId)
+          <div>
+            <button type="submit" class="btn btn-success">Check In</button>
+          </div>
+        }
+
         <p>
-          <a class="btn btn-lg btn-success" role="button" asp-controller="Catalog"
-             asp-action="CheckIn" asp-route-id="@Model.AssetId">
-            Check In
-          </a>
-        </p>
-        <p>
-          <a class="btn btn-lg btn-warning" role="button" asp-controller="Catalog"
-             asp-action="Hold" asp-route-id="@Model.AssetId">
+          <a class="btn btn-warning" role="button" asp-controller="Catalog"
+             asp-action="Hold" asp-route-assetId="@Model.AssetId">
             Place Hold
           </a>
         </p>
       }
 
-      @if (Model.Status == "Available")
+      @if (Model.Status == StatusNames.AVAILABLE)
       {
         <p>
-          <a class="btn btn-lg btn-info" role="button" asp-controller="Catalog"
-             asp-action="CheckOut" asp-route-id="@Model.AssetId">
+          <a class="btn btn-info" role="button" asp-controller="Catalog"
+             asp-action="CheckOut" asp-route-assetId="@Model.AssetId">
             Check Out
           </a>
         </p>

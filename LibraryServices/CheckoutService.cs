@@ -74,7 +74,7 @@ namespace LibraryServices
       var history = _context.CheckoutHistories
         .FirstOrDefault(h => h.LibraryAsset.Id == assetId && h.CheckIn == null);
 
-      if (history == null)
+      if (history != null)
       {
         _context.Update(history);
         history.CheckIn = DateTime.Now;
@@ -87,7 +87,7 @@ namespace LibraryServices
       var checkout = _context.Checkouts
         .FirstOrDefault(c => c.LibraryAsset.Id == assetId);
 
-      if (checkout == null)
+      if (checkout != null)
       {
         _context.Remove(checkout);
       }
@@ -104,7 +104,8 @@ namespace LibraryServices
       var now = DateTime.Now;
       
       var asset = _context.LibraryAssets
-        .FirstOrDefault(a => a.Id == assetId);
+        .Include(_asset => _asset.Status)
+        .FirstOrDefault(_asset => _asset.Id == assetId);
       
       var card = _context.LibraryCards
         .FirstOrDefault(c => c.Id == libraryCardId);
@@ -124,7 +125,7 @@ namespace LibraryServices
       _context.SaveChanges();
     }
 
-    public void CheckInItem(int assetId, int libraryCardId)
+    public void CheckInItem(int assetId)
     {
       var item = _context.LibraryAssets
         .FirstOrDefault(a => a.Id == assetId);
@@ -137,15 +138,16 @@ namespace LibraryServices
 
       // Looking for existing holds on the item.
       var currentHolds = _context.Holds
-        .Include(h => h.LibraryAsset)
-        .Include(h => h.LibraryCard)
-        .Where(h => h.LibraryAsset.Id == assetId);
+        .Include(_hold => _hold.LibraryAsset)
+        .Include(_hold => _hold.LibraryCard)
+        .Where(_hold => _hold.LibraryAsset.Id == assetId);
 
       // If there are holds, checkout the item to the 
       //   LibraryCard with the earliest hold.
       if (currentHolds.Any())
       {
         CheckoutToEarliestHold(assetId, currentHolds);
+        return;
       }
 
       // Otherwise, update item status to available.
@@ -172,7 +174,7 @@ namespace LibraryServices
     public void CheckOutItem(int assetId, int libraryCardId)
     {
       // Add logic here to handle feedback to the user
-      if (IsCheckout(assetId)) { return; }
+      if (IsCheckedOut(assetId)) { return; }
 
       var item = _context.LibraryAssets
         .FirstOrDefault(a => a.Id == assetId);
@@ -207,7 +209,7 @@ namespace LibraryServices
 
     private DateTime GetDefaultCheckoutTime(DateTime now) => now.AddDays(30);
 
-    private bool IsCheckout(int assetId) =>
+    public bool IsCheckedOut(int assetId) =>
       _context.Checkouts
         .Where(c => c.LibraryAsset.Id == assetId)
         .Any();

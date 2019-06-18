@@ -1,7 +1,7 @@
 ﻿using LibraryData.Models;
 using System.Collections.Generic;
 
-namespace LibraryMvc.Models.Catalog.Detail
+namespace LibraryMvc.Models.Catalog.DetailModels
 {
   public class AssetDetailModel
   {

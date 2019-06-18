@@ -6,6 +6,10 @@
     <UserSecretsId>923513d4-8e6f-4262-899f-170f87c8d678</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Catalog\Checkout.cshtml" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
@@ -18,6 +22,21 @@
   <ItemGroup>
     <ProjectReference Include="..\LibraryData\LibraryData.csproj" />
     <ProjectReference Include="..\LibraryServices\LibraryServices.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Catalog\Checkout.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Catalog\Checkout.cshtml" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Views\Catalog\Checkout.cshtml" />
   </ItemGroup>
 
 </Project>
