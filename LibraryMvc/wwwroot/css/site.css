@@ -12,6 +12,7 @@ a.navbar-brand {
 html {
   font-size: 14px;
 }
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -21,6 +22,7 @@ html {
 .border-top {
   border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
 }
@@ -45,6 +47,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -53,4 +56,210 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/*###############################################################################*/
+
+.logo {
+  font-family: "Coda";
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.logo > a {
+  color: #ddd;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+.logo > a:hover {
+  color: #fff;
+  transition: ease;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+.page-content {
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.page-heading {
+  color: #e9e8e7;
+}
+
+.splash {
+  background-image: url("/images/catalog.png");
+  background-repeat: no-repeat;
+  min-height: 200px;
+}
+
+.card-icon {
+  color: #777;
+  font-size: 40px;
+  padding: 24px;
+  -webkit-border-radius: 1100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  vertical-align: middle;
+  width: 60px;
+  height: 60px;
+  -moz-transition: .5s;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+
+.icon-wrapper {
+  display: table-cell;
+}
+
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+}
+
+.home-label {
+  background-color: rgba(0,0,0,0.3);
+  padding: 4px;
+}
+
+#catalog {
+  background: url('/images/books.jpg') bottom right 15% no-repeat #555;
+}
+
+#catalog-index-table {
+  font-size: 1.3em;
+}
+
+  #catalog-index-table td {
+    vertical-align: middle;
+  }
+
+  #catalog-index-table tr:hover {
+    background-color: #eee;
+  }
+
+#patrons {
+  background: url('/images/patron.jpeg') bottom left 15% no-repeat #555;
+}
+
+.branch-info {
+  padding-top: 30px;
+}
+
+#branches {
+  background: url('/images/bldg.jpeg') bottom right 15% no-repeat #555;
+}
+
+#assets {
+  margin: 0 auto;
+}
+
+.custom-table td {
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.strong-td {
+  font-weight: bold;
+}
+
+.custom-table th {
+  text-align: left;
+  color: black;
+  font-size: 1.3em;
+}
+
+.image-cell {
+  width: 128px;
+  padding: 10px;
+}
+
+#assets-table td {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.author-label {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.title-label {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+#item-title {
+  font-size: 2.3em;
+}
+
+#item-author {
+  font-size: 1.6em;
+}
+
+#item-status {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+#item-type {
+  font-size: 1.6em;
+  color: #888;
+}
+
+.item-label {
+  font-weight: bold;
+}
+
+
+.item-value {
+  text-align: right;
+  font-size: 0.8em;
+}
+
+.availability {
+  padding-top: 20px;
+  font-size: 1.2em;
+}
+
+.detail-image {
+  width: 200px;
+  padding-bottom: 6px;
+}
+
+.detail-info {
+  padding: 10px;
+  font-size: 1.3em;
+  color: #555;
+}
+
+.detail-heading {
+  padding: 10px;
+}
+
+#branch-description {
+  width: 500px;
+  padding: 18px 0 12px 4px;
+}
+
+.branch-contact {
+  padding: 12px 0 16px 0;
+  font-size: 1.2em;
+}
+
+#patron-has-fees {
+  color: #c62222;
+  font-weight: bold;
+}
+
+#patron-no-fees {
+  color: #2f6fc7;
+  font-weight: bold;
 }
