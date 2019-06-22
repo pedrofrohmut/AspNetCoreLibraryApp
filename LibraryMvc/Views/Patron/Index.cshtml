@@ -1,0 +1,37 @@
+﻿@model LibraryMvc.Models.Patron.IndexModels.PatronListModel
+
+@{
+  ViewBag.Title = "Patron Index";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div id="patron-index">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Profile Link</th>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Library Card Id</th>
+        <th>Overdue Fees</th>
+        <th>Home Library</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var patron in Model.PatronsList)
+      {
+        <tr>
+          <td>
+            <a asp-controller="Patron" asp-action="Detail" asp-route-patronId="@patron.PatronId">(Profile)</a>
+          </td>
+          <td>@patron.LastName</td>
+          <td>@patron.FirstName</td>
+          <td>@patron.LibraryCardId</td>
+          <td>@patron.OverdueFees</td>
+          <td>@patron.HomeLibraryBranch</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

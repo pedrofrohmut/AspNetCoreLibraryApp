@@ -30,9 +30,14 @@ namespace LibraryMvc
       });
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
       services.AddSingleton(Configuration);
+
       services.AddScoped<ILibraryAsset, LibraryAssetService>();
       services.AddScoped<ICheckout, CheckoutService>();
+      services.AddScoped<IPatron, PatronService>();
+      services.AddScoped<ILibraryBranch, LibraryBranchService>();
+
       services.AddDbContext<LibraryDbContext>(options => 
         options.UseSqlServer(Configuration.GetConnectionString("LibraryConnection")));
     }

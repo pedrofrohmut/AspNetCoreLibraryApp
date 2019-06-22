@@ -1,8 +1,43 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Library App";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h3 class="display-2 mb-5 mt-4">@ViewData["Title"]</h3>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <img src="~/images/resize_catalog.jpg"  class="card-img-top"/>
+      <div class="card-body">
+        <h2>Library Catalog</h2>
+        <p>View and Manage library assets</p>
+        <p>View Catalog</p>
+        <a asp-action="Index" asp-controller="Catalog" class="btn btn-primary">View Catalog</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <img src="~/images/resize_patron.jpg"  class="card-img-top"/>
+      <div class="card-body">
+        <h2>Patrons</h2>
+        <p>View and Manage library patron data</p>
+        <p>View Patron Index</p>
+        <a asp-action="Index" asp-controller="Patron" class="btn btn-primary">View Patron Index</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card" style="width: 18rem;">
+      <img src="~/images/resize_branch.jpg" class="card-img-top"/>
+      <div class="card-body">
+        <h2>Branches</h2>
+        <p>View and Manage LibraryApp branches.</p>
+        <p>View Branch Index</p>
+        <a asp-action="Index" asp-controller="Branch" class="btn btn-primary">View Branch Index</a>
+      </div>
+    </div>
+  </div>
 </div>

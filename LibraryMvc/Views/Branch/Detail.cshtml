@@ -1,0 +1,62 @@
+﻿@model LibraryMvc.Models.Branch.DetailModels.BranchDetailModel
+
+@{
+  ViewBag.Title = Model.Name + " Branch";
+}
+
+<div class="container">
+  <div class="header clearfix detail-heading">
+    <h2 class="text-muted my-4 ml-2">Branch Information</h2>
+  </div>
+
+  <div class="jumbotron">
+    <div class="row">
+      <img src="@Model.ImageUrl"/>
+    </div>
+
+    <div class="row branch-info">
+      <div class="col-md-8">
+        <h3>@Model.Name</h3>
+
+        <div id="branch-contact">
+          <div id="branch-address">Address: @Model.Address</div>
+          <div id="branch-tel">Telephone Number: @Model.TelephoneNumber</div>
+        </div>
+
+        <div id="branch-description">
+          <p class="caption">@Model.Description</p>
+        </div>
+
+        <div id="branch-hours">
+          <ul>
+            @foreach (var day in Model.HoursOpen)
+            {
+              <li>@day</li>
+            }
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <table class="table">
+          <tr>
+            <td class="item-label">Date Open:</td>
+            <td class="item-value">@Model.OpenDate</td>
+          </tr>
+          <tr>
+            <td class="item-label">Number of Patrons:</td>
+            <td class="item-value">@Model.NumberOfPatrons</td>
+          </tr>
+          <tr>
+            <td class="item-label">Number of Assets:</td>
+            <td class="item-value">@Model.NumberOfAssets</td>
+          </tr>
+          <tr>
+            <td class="item-label">Value of Assets:</td>
+            <td class="item-value">$@Model.TotalAssetValue</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

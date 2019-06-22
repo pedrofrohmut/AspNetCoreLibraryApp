@@ -19,7 +19,7 @@ guidelines = 80, 120
 
 [*]
 # Named color format
-guidelines_style = 2.5px solid 55333333
+guidelines_style = 2.5px solid 55333333 
 
 [*.{cs,vb}]
 # ARGB color format (red with 25% opacity)
